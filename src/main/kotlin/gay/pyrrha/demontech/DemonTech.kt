@@ -25,7 +25,7 @@ object DemonTech : ModInitializer {
     val LOGGER: Logger = LoggerFactory.getLogger(DemonTech::class.java)
 
     override fun onInitialize(mod: ModContainer) {
-        LOGGER.info("[DemonTech] Starting Initializing...")
+        LOGGER.info("[DemonTech] Initializing...")
         val startTime = System.currentTimeMillis()
 
         LOGGER.info("[DemonTech] Initialized. (Took {}ms)", System.currentTimeMillis()-startTime)
