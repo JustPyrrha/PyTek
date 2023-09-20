@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "gay.pyrrha",
+    "id": "demontech",
+    "version": "$version",
+    "metadata": {
+      "name": "DemonTech",
+      "description": "Technology and a lick of flame.",
+      "contributors": {
+        "JustPyrrha": "Owner"
+      },
+      "license": {
+        "id": "Apache-2.0",
+        "name": "Apache License 2.0",
+        "url": "https://www.apache.org/licenses/LICENSE-2.0"
+      },
+      "contact": {
+        "sources": "https://github.com/JustPyrrha/DemonTech",
+        "issues": "https://github.com/JustPyrrha/DemonTech/issues"
+      }
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": {
+        "adapter": "kotlin",
+        "value": "gay.pyrrha.demontech.DemonTech"
+      }
+    }
+  },
+  "minecraft": {
+    "environment": "*"
+  },
+  "mixin": "demontech.mixins.json"
+}
