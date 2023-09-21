@@ -16,18 +16,14 @@
 
 package gay.pyrrha.demontech
 
-import org.quiltmc.loader.api.ModContainer
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import org.gradle.api.Project
+import org.gradle.api.artifacts.VersionCatalog
+import org.gradle.api.artifacts.VersionCatalogsExtension
+import org.gradle.kotlin.dsl.getByType
+import java.util.*
 
-object DemonTech : ModInitializer {
-    val LOGGER: Logger = LoggerFactory.getLogger(DemonTech::class.java)
+val Project.libs
+    get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-    override fun onInitialize(mod: ModContainer) {
-        LOGGER.info("[DemonTech] Initializing...")
-        val startTime = System.currentTimeMillis()
-
-        LOGGER.info("[DemonTech] Initialized. (Took {}ms)", System.currentTimeMillis()-startTime)
-    }
-}
+fun String?.base64Decode(): String =
+    String(Base64.getDecoder().decode(this ?: ""))

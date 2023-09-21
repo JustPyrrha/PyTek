@@ -1,5 +1,4 @@
 pluginManagement {
-    includeBuild("buildLogic")
     repositories {
         maven("https://maven.quiltmc.org/repository/release") { name = "Quilt" }
         maven("https://maven.fabricmc.net") { name = "Fabric" }
@@ -8,12 +7,14 @@ pluginManagement {
     }
 }
 
-rootProject.name = "DemonTech"
+dependencyResolutionManagement {
+    versionCatalogs {
+        create("libs") {
+            from(files("../gradle/libs.versions.toml"))
+        }
+    }
+}
 
-include(
-    ":libraries:datagen-helper",
 
-    ":mod"
-)
-
-enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+rootProject.name = "buildLogic"
+include("convention")

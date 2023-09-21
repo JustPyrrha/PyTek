@@ -38,4 +38,6 @@ jobs:
           arguments: |
             checkLicenses
             detekt
+            :buildLogic:convention:checkLicenses
+            :buildLogic:convention:detekt
             build

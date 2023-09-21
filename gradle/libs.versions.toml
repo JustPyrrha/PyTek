@@ -1,5 +1,5 @@
 [versions]
-changelog = "2.+"
+changelog = "2.2.0"
 detekt = "1.23.0"
 githooks = "0.0.2"
 kotlin = "1.9.0"
@@ -9,10 +9,11 @@ minotaur = "2+"
 quiltKotlinLibraries = "2.1.2+kt.1.9.0+flk.1.10.8"
 quiltLicenser = "1.+"
 quiltLoader = "0.20.2"
-quiltLoom = "1.+"
+quiltLoom = "1.3.+"
 quiltMappings = "1.20.1+build.23"
 quiltMappingsClassifier = "intermediary-v2"
 quiltStandardLibraries = "6.1.2+1.20.1"
+quiltedFabricApi = "7.2.2+0.88.1-1.20.1"
 
 [libraries]
 kotlinx-serializationCbor = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-cbor", version.ref = "kotlinxSerializationCbor" }
@@ -21,6 +22,15 @@ quilt-kotlinLibraries = { group = "org.quiltmc.quilt-kotlin-libraries", name = "
 quilt-loader = { group = "org.quiltmc", name = "quilt-loader", version.ref = "quiltLoader" }
 quilt-mappings = { group = "org.quiltmc", name = "quilt-mappings", version.ref = "quiltMappings" }
 quilt-standardLibraries = { group = "org.quiltmc", name = "qsl", version.ref = "quiltStandardLibraries" }
+quilted-fabricApi = { group = "org.quiltmc.quilted-fabric-api", name = "quilted-fabric-api", version.ref = "quiltedFabricApi" }
+
+# for buildLogic
+changelog-gradlePlugin = { group = "org.jetbrains.intellij.plugins", name = "gradle-changelog-plugin", version.ref = "changelog" }
+detekt-gradlePlugin = { group = "io.gitlab.arturbosch.detekt", name = "io.gitlab.arturbosch.detekt.gradle.plugin", version.ref = "detekt" }
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+minotaur-gradlePlugin = { group = "com.modrinth.minotaur", name = "com.modrinth.minotaur.gradle.plugin", version.ref = "minotaur" }
+quilt-licenserGradlePlugin = { group = "org.quiltmc.gradle.licenser", name = "org.quiltmc.gradle.licenser.gradle.plugin", version.ref = "quiltLicenser" }
+quilt-loomGradlePlugin = { group = "org.quiltmc", name = "loom", version.ref = "quiltLoom" }
 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }

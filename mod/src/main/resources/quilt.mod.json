@@ -25,6 +25,10 @@
       "init": {
         "adapter": "kotlin",
         "value": "gay.pyrrha.demontech.DemonTech"
+      },
+      "fabric-datagen": {
+        "adapter": "kotlin",
+        "value": "gay.pyrrha.demontech.datagen.DemonTechDataGen"
       }
     }
   },

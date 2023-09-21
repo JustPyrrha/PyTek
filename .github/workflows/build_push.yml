@@ -40,6 +40,8 @@ jobs:
           arguments: |
             checkLicenses
             detekt
+            :buildLogic:convention:checkLicenses
+            :buildLogic:convention:detekt
             build
             --stacktrace
           # test
@@ -79,7 +81,7 @@ jobs:
           echo "$CHANGELOG" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Create Modrinth Release
-        run: ./gradlew build signRemapJar modrinth modrinthSyncBody
+        run: ./gradlew :mod:build signRemapJar modrinth modrinthSyncBody
         env:
           MODRINTH_TOKEN: ${{ secrets.MODRINTH_TOKEN }}
           ORG_GRADLE_PROJECT_signingKey: ${{ secrets.PGP_SECRET_KEY }}
@@ -94,7 +96,7 @@ jobs:
           NL=$'\n'
           CHANGELOG=${CHANGELOG//$'\\n'/"${NL}"}
           echo "$CHANGELOG" >> "notes.txt"
-          gh release create ${{ github.ref_name }} ./build/libs/*.jar ./build/libs/*.asc --notes-file notes.txt
+          gh release create ${{ github.ref_name }} ./mod/build/libs/*.jar ./mod/build/libs/*.asc --notes-file notes.txt
 
       - name: Patch Changelog
         run: ./gradlew patchChangelog
