@@ -33,13 +33,20 @@ version = modVersion
 base.archivesName.set("DemonTech")
 
 dependencies {
+    include(implementation(projects.libraries.datagen) { targetConfiguration = "namedElements" } )
+
     modImplementation(libs.quilt.kotlinLibraries)
     modImplementation(libs.quilt.standardLibraries)
-    modImplementation(libs.quilted.fabricApi)
 
     implementation(libs.kotlinx.serializationCbor)
 
     testImplementation(kotlin("test"))
+}
+
+loom {
+    runConfigs.configureEach {
+        isIdeConfigGenerated = true
+    }
 }
 
 val javaVersion = 17

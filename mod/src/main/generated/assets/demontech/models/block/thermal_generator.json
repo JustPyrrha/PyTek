@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "demontech:block/thermal_generator",
+    "side": "demontech:block/thermal_generator_side",
+    "top": "demontech:block/thermal_generator_top"
+  }
+}

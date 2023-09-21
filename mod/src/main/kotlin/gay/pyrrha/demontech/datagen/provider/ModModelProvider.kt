@@ -16,21 +16,21 @@
 
 package gay.pyrrha.demontech.datagen.provider
 
+import gay.pyrrha.datagenhelper.registerHorizontalRotatable
+import gay.pyrrha.demontech.block.ModBlocks
+import gay.pyrrha.demontech.item.ModItems
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.client.ItemModelGenerator
 import net.minecraft.data.client.model.BlockStateModelGenerator
+import net.minecraft.data.client.model.Models
 
 class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
     override fun generateBlockStateModels(generator: BlockStateModelGenerator) {
-//        generator.registerNorthDefaultHorizontalRotatable(
-//            ModBlocks.THERMAL_GENERATOR,
-//            Texture()
-//                .put(TextureKey.PARTICLE, Texture.getSubId(ModBlocks.THERMAL_GENERATOR, ))
-//        )
+        generator.registerHorizontalRotatable(ModBlocks.THERMAL_GENERATOR)
     }
 
-    override fun generateItemModels(itemModelGenerator: ItemModelGenerator?) {
-        TODO("Not yet implemented")
+    override fun generateItemModels(generator: ItemModelGenerator) {
+        generator.register(ModItems.NETWORK_SCANNER, Models.SINGLE_LAYER_ITEM)
     }
 }

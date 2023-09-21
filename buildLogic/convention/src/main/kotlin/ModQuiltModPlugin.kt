@@ -27,7 +27,7 @@ import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.withType
 import org.gradle.language.jvm.tasks.ProcessResources
 
-class ModQuiltPlugin : Plugin<Project> {
+class ModQuiltModPlugin : Plugin<Project> {
     override fun apply(target: Project) {
         with(target) {
             with(pluginManager) {
@@ -50,7 +50,6 @@ class ModQuiltPlugin : Plugin<Project> {
             }
 
             tasks.withType<ProcessResources> {
-                filteringCharset = "UTF-8"
                 inputs.property("version", project.version)
 
                 filesMatching("quilt.mod.json") {
@@ -80,4 +79,3 @@ class ModQuiltPlugin : Plugin<Project> {
         }
     }
 }
-

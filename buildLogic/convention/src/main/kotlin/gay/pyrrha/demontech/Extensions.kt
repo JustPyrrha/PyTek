@@ -25,5 +25,5 @@ import java.util.*
 val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
-fun String?.base64Decode(): String =
-    String(Base64.getDecoder().decode(this ?: ""))
+fun String?.base64Decode(): String? =
+    if(this != null) String(Base64.getDecoder().decode(this)) else null

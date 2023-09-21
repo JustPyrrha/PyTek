@@ -21,15 +21,14 @@ import net.minecraft.data.client.model.BlockStateModelGenerator
 import net.minecraft.data.client.model.Texture
 import net.minecraft.data.client.model.TextureKey
 
-fun BlockStateModelGenerator.registerHorizontalRotatable(block: Block) {
-     registerNorthDefaultHorizontalRotatable(
-          block,
-          Texture()
-               .put(TextureKey.PARTICLE, Texture.getSubId(block, "_front"))
-               .put(TextureKey.TOP, Texture.getSubId(block, "_top"))
-               .put(TextureKey.BOTTOM, Texture.getSubId(block, "_bottom"))
-               .put(TextureKey.SIDE, Texture.getSubId(block, "_side"))
-               .put(TextureKey.FRONT, Texture.getSubId(block, "_front"))
-               .put(TextureKey.BACK, Texture.getSubId(block, "_back"))
-     )
+public fun BlockStateModelGenerator.registerHorizontalRotatable(block: Block) {
+    registerNorthDefaultHorizontalRotatable(
+        block,
+        Texture()
+            .put(TextureKey.PARTICLE, Texture.getSubId(block, "_front"))
+            .put(TextureKey.FRONT, Texture.getSubId(block, "_front"))
+            .put(TextureKey.SIDE, Texture.getSubId(block, "_side"))
+            .put(TextureKey.TOP, Texture.getSubId(block, "_top"))
+            .put(TextureKey.BOTTOM, Texture.getSubId(block, "_bottom"))
+    )
 }

@@ -49,9 +49,13 @@ license {
 
 gradlePlugin {
     plugins {
-        register("quilt") {
+        register("quiltMod") {
             id = "mod.quilt"
-            implementationClass = "ModQuiltPlugin"
+            implementationClass = "ModQuiltModPlugin"
+        }
+        register("quiltLibrary") {
+            id = "mod.quilt.library"
+            implementationClass = "ModQuiltLibraryPlugin"
         }
         register("lint") {
             id = "mod.lint"

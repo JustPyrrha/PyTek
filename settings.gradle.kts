@@ -11,8 +11,7 @@ pluginManagement {
 rootProject.name = "DemonTech"
 
 include(
-    ":libraries:datagen-helper",
-
+    ":libraries:datagen",
     ":mod"
 )
 

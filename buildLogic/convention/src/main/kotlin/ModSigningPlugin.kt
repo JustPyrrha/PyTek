@@ -29,15 +29,13 @@ class ModSigningPlugin : Plugin<Project> {
             }
 
             extensions.configure<SigningExtension> {
-                isRequired = System.getenv("CI") != null &&
-                        System.getenv("GITHUB_JOB") != null &&
-                        System.getenv("GITHUB_JOB") == "build_push"
-
                 sign(tasks.getByName("remapJar"))
                 val signingKeyId: String? by project
                 val signingKey: String? by project
                 val signingPassword: String? by project
                 useInMemoryPgpKeys(signingKeyId, signingKey.base64Decode(), signingPassword.base64Decode())
+
+                isRequired = System.getenv("CI") != null && System.getenv("GITHUB_JOB") == "build_push"
             }
         }
     }

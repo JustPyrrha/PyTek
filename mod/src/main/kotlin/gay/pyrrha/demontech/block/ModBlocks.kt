@@ -18,7 +18,6 @@ package gay.pyrrha.demontech.block
 
 import gay.pyrrha.demontech.DemonTech
 import net.minecraft.block.Block
-import net.minecraft.block.Blocks
 import net.minecraft.item.BlockItem
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -26,9 +25,10 @@ import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings
 
 object ModBlocks {
+    internal const val METAL_STRENGTH = 3.5f
 
     val THERMAL_GENERATOR: Block by lazy {
-        Block(QuiltBlockSettings.copy(Blocks.FURNACE))
+        ThermalGeneratorBlock()
     }
 
     fun init() {

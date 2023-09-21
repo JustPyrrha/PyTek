@@ -14,10 +14,12 @@
  * limitations under the License.
  */
 
+import gay.pyrrha.demontech.libs
 import net.fabricmc.loom.api.LoomGradleExtensionAPI
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
 import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
 class ModDataGenPlugin : Plugin<Project> {
@@ -40,6 +42,10 @@ class ModDataGenPlugin : Plugin<Project> {
 
             extensions.configure<KotlinJvmProjectExtension> {
                 sourceSets.maybeCreate("main").resources.srcDirs.add(file("src/main/generated"))
+            }
+
+            dependencies{
+                "modImplementation"(libs.findLibrary("quilted-fabricDataGenerationApiV1").get())
             }
         }
     }

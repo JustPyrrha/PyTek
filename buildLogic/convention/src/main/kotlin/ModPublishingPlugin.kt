@@ -17,17 +17,13 @@
 import com.modrinth.minotaur.ModrinthExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.Task
 import org.gradle.api.tasks.bundling.Zip
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.creating
 import org.gradle.kotlin.dsl.dependencies
 import org.gradle.kotlin.dsl.getByType
 import org.jetbrains.changelog.Changelog
-import org.jetbrains.changelog.ChangelogPlugin
 import org.jetbrains.changelog.ChangelogPluginExtension
 import org.jetbrains.changelog.date
-import org.jetbrains.kotlin.gradle.plugin.mpp.pm20.util.archivesName
 
 class ModPublishingPlugin : Plugin<Project> {
 
@@ -48,7 +44,7 @@ class ModPublishingPlugin : Plugin<Project> {
                 from(tasks.getByName("signRemapJar").outputs.files)
                 from(files("src/main/resources/quilt.mod.json"))
 
-                archiveFileName.set("${archivesName.get()}-${project.version}-signature.zip")
+                archiveFileName.set("${rootProject.name}-${project.version}-signature.zip")
             }
 
             extensions.configure<ChangelogPluginExtension> {
