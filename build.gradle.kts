@@ -15,5 +15,5 @@ gitHooks {
         "detekt",
         ":buildLogic:convention:checkLicenses",
         ":buildLogic:convention:detekt"
-    ).joinToString(separator = " ") { "" }))
+    ).joinToString(separator = " ")))
 }
