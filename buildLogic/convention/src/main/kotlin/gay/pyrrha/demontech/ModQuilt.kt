@@ -14,27 +14,27 @@
  * limitations under the License.
  */
 
-import gay.pyrrha.demontech.configureQuilt
-import gay.pyrrha.demontech.libs
+package gay.pyrrha.demontech
+
 import net.fabricmc.loom.api.LoomGradleExtensionAPI
-import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmProjectExtension
 
-class ModQuiltLibraryPlugin : Plugin<Project> {
-    override fun apply(target: Project) {
-        with(target) {
-            with(pluginManager) {
-                apply("org.jetbrains.kotlin.jvm")
-            }
+internal fun Project.configureQuilt() {
+    with(pluginManager) {
+        apply("org.quiltmc.loom")
+    }
 
-            configureQuilt()
+    extensions.configure<LoomGradleExtensionAPI> {
+        runtimeOnlyLog4j.set(true)
+    }
 
-            extensions.configure<KotlinJvmProjectExtension> {
-                explicitApi()
-            }
-        }
+    dependencies {
+        add("minecraft", libs.findLibrary("minecraft").get())
+        add("mappings", variantOf(libs.findLibrary("quilt.mappings").get()) {
+            classifier(libs.findVersion("quiltMappingsClassifier").get().requiredVersion)
+        })
+        add("modImplementation", libs.findLibrary("quilt.loader").get())
     }
 }

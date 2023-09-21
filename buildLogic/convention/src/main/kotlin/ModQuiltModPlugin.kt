@@ -15,6 +15,7 @@
  */
 
 import gay.pyrrha.demontech.configureKotlin
+import gay.pyrrha.demontech.configureQuilt
 import gay.pyrrha.demontech.libs
 import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
@@ -32,22 +33,9 @@ class ModQuiltModPlugin : Plugin<Project> {
         with(target) {
             with(pluginManager) {
                 apply("org.jetbrains.kotlin.jvm")
-                apply("org.quiltmc.loom")
             }
 
-            extensions.configure<LoomGradleExtensionAPI> {
-                runtimeOnlyLog4j.set(true)
-            }
-
-            configureKotlin()
-
-            dependencies {
-                "minecraft"(libs.findLibrary("minecraft").get())
-                "mappings"(variantOf(libs.findLibrary("quilt.mappings").get()) {
-                    classifier(libs.findVersion("quiltMappingsClassifier").get().requiredVersion)
-                })
-                "modImplementation"(libs.findLibrary("quilt.loader").get())
-            }
+            configureQuilt()
 
             tasks.withType<ProcessResources> {
                 inputs.property("version", project.version)
