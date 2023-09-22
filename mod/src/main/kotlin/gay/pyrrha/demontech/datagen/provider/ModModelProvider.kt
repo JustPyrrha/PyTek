@@ -32,5 +32,7 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
 
     override fun generateItemModels(generator: ItemModelGenerator) {
         generator.register(ModItems.NETWORK_SCANNER, Models.SINGLE_LAYER_ITEM)
+        generator.register(ModItems.ADAPTIVE_THERMAL_PAD, Models.SINGLE_LAYER_ITEM)
+        generator.register(ModItems.THERMAL_PAD, Models.SINGLE_LAYER_ITEM)
     }
 }

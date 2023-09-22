@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "c": {
+      "item": "minecraft:copper_ingot"
+    },
+    "p": {
+      "item": "demontech:thermal_pad"
+    }
+  },
+  "pattern": [
+    "ppp",
+    "pcp",
+    "ppp"
+  ],
+  "result": {
+    "count": 8,
+    "item": "demontech:adaptive_thermal_pad"
+  },
+  "show_notification": true
+}

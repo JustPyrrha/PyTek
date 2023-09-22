@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "demontech:item/adaptive_thermal_pad"
+  }
+}

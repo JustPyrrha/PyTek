@@ -1,4 +1,6 @@
 {
   "block.demontech.thermal_generator": "Thermal Generator",
-  "item.demontech.network_scanner": "Network Scanner"
+  "item.demontech.adaptive_thermal_pad": "Adaptive Thermal Pad",
+  "item.demontech.network_scanner": "Network Scanner",
+  "item.demontech.thermal_pad": "Thermal Pad"
 }

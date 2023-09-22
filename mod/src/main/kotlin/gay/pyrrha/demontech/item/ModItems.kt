@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@file:Suppress("MagicNumber")
 package gay.pyrrha.demontech.item
 
 import gay.pyrrha.demontech.DemonTech
@@ -28,8 +29,13 @@ object ModItems {
         Item(QuiltItemSettings().maxCount(1).fireproof())
     }
 
+    val ADAPTIVE_THERMAL_PAD: Item by lazy { Item(QuiltItemSettings().maxCount(16)) }
+    val THERMAL_PAD: Item by lazy { Item(QuiltItemSettings().maxCount(16)) }
+
     fun init() {
         register(NETWORK_SCANNER, "network_scanner")
+        register(ADAPTIVE_THERMAL_PAD, "adaptive_thermal_pad")
+        register(THERMAL_PAD, "thermal_pad")
     }
 
     private fun register(item: Item, path: String) {

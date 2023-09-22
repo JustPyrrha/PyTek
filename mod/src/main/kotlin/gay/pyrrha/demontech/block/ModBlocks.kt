@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+@file:Suppress("MagicNumber")
 package gay.pyrrha.demontech.block
 
 import gay.pyrrha.demontech.DemonTech
@@ -25,10 +26,8 @@ import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings
 import org.quiltmc.qsl.item.setting.api.QuiltItemSettings
 
 object ModBlocks {
-    internal const val METAL_STRENGTH = 3.5f
-
     val THERMAL_GENERATOR: Block by lazy {
-        ThermalGeneratorBlock()
+        ThermalGeneratorBlock(QuiltBlockSettings.create().strength(3.5f))
     }
 
     fun init() {

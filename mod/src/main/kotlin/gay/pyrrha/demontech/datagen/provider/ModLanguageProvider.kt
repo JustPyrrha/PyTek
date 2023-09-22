@@ -23,10 +23,12 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider
 
 class ModLanguageProvider(output: FabricDataOutput) : FabricLanguageProvider(output) {
     override fun generateTranslations(builder: TranslationBuilder) {
-        // Items
-        builder.add(ModItems.NETWORK_SCANNER, "Network Scanner")
-
         // Blocks
         builder.add(ModBlocks.THERMAL_GENERATOR, "Thermal Generator")
+
+        // Items
+        builder.add(ModItems.NETWORK_SCANNER, "Network Scanner")
+        builder.add(ModItems.ADAPTIVE_THERMAL_PAD, "Adaptive Thermal Pad")
+        builder.add(ModItems.THERMAL_PAD, "Thermal Pad")
     }
 }

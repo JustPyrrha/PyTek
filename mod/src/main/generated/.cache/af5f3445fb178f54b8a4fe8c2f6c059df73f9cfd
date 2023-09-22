@@ -1,5 +1,7 @@
-// 1.20.1	2023-09-21T22:05:28.6206649	DemonTech/Model Definitions
+// 1.20.1	2023-09-22T22:43:17.8746027	DemonTech/Model Definitions
 7ebda4c9fc3b1609ba85c279cacb21df2c2c0da4 assets\demontech\blockstates\thermal_generator.json
+1553a5a32f6eea8f14c9576e57e1196f354d0cb3 assets\demontech\models\item\adaptive_thermal_pad.json
 0735aeccdca22e6550bb440c19db611f7a3afef4 assets\demontech\models\block\thermal_generator.json
 064437a220993494dd254949030a436a05b142a8 assets\demontech\models\item\network_scanner.json
+c4fc053c5546d309094b5dc93b0366627d52f463 assets\demontech\models\item\thermal_pad.json
 5d19a24573008a39379c303c3aaa940119c2500c assets\demontech\models\item\thermal_generator.json

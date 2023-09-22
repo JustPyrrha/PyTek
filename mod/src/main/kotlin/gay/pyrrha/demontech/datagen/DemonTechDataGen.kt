@@ -18,6 +18,7 @@ package gay.pyrrha.demontech.datagen
 
 import gay.pyrrha.demontech.datagen.provider.ModLanguageProvider
 import gay.pyrrha.demontech.datagen.provider.ModModelProvider
+import gay.pyrrha.demontech.datagen.provider.ModRecipeProvider
 import net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint
 import net.fabricmc.fabric.api.datagen.v1.FabricDataGenerator
 
@@ -25,7 +26,8 @@ object DemonTechDataGen : DataGeneratorEntrypoint {
     override fun onInitializeDataGenerator(generator: FabricDataGenerator) {
         generator.createPack().apply {
             addProvider { output, _ -> ModLanguageProvider(output) }
-            addProvider { output, _ ->  ModModelProvider(output) }
+            addProvider { output, _ -> ModModelProvider(output) }
+            addProvider { output, _ -> ModRecipeProvider(output) }
         }
     }
 }

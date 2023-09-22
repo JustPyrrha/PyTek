@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "g": {
+      "item": "minecraft:gold_nugget"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "o": {
+      "item": "minecraft:obsidian"
+    }
+  },
+  "pattern": [
+    "oi",
+    "go"
+  ],
+  "result": {
+    "count": 8,
+    "item": "demontech:thermal_pad"
+  },
+  "show_notification": true
+}

@@ -35,14 +35,13 @@ import net.minecraft.state.property.Properties
 import net.minecraft.util.math.BlockPos
 import net.minecraft.util.math.Direction
 import net.minecraft.world.World
-import org.quiltmc.qsl.block.extensions.api.QuiltBlockSettings
 
 /**
  * Basic, tier 1 generator
  * Generates 1 Unit/tick
  * Stores 600 Units (Output Only)
  */
-class ThermalGeneratorBlock : BlockWithEntity(QuiltBlockSettings.create().strength(ModBlocks.METAL_STRENGTH)) {
+class ThermalGeneratorBlock(settings: Settings) : BlockWithEntity(settings) {
     init {
         defaultState = stateManager.defaultState.with(FACING, Direction.NORTH)
     }
