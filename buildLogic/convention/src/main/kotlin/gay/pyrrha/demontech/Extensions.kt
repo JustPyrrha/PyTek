@@ -20,10 +20,31 @@ import org.gradle.api.Project
 import org.gradle.api.artifacts.VersionCatalog
 import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.getByType
+import java.lang.System.getenv
 import java.util.*
+
+private const val RUN_NUMBER_VAR = "GITHUB_RUN_NUMBER"
 
 val Project.libs
     get(): VersionCatalog = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
+val isCI
+    get(): Boolean = getenv("CI") != null
+
+val buildNumber
+    get(): String = if (isCI && getenv(RUN_NUMBER_VAR) != null) {
+        getenv(RUN_NUMBER_VAR)
+    } else {
+        "local"
+    }
+
+val Project.buildInfo
+    get(): String = if(buildNumber == "local")
+        libs.findVersion("minecraft").get().requiredVersion
+    else
+        "build.$buildNumber-${libs.findVersion("minecraft").get().requiredVersion}"
+
 fun String?.base64Decode(): String? =
-    if(this != null) String(Base64.getDecoder().decode(this)) else null
+    if (this != null) String(Base64.getDecoder().decode(this)) else null
+
+

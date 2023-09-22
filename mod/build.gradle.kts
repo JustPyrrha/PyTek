@@ -1,5 +1,5 @@
+import gay.pyrrha.demontech.buildInfo
 import org.jetbrains.changelog.Changelog
-import java.lang.System.getenv
 
 plugins {
     id("mod.quilt")
@@ -12,21 +12,7 @@ plugins {
     alias(libs.plugins.ksp)
 }
 
-val isCI = getenv("CI") != null
-val runNumberEnvName = "GITHUB_RUN_NUMBER"
-val buildNumber: String = if (isCI && getenv(runNumberEnvName) != null) {
-    getenv(runNumberEnvName)
-} else {
-    "local"
-}
-val jobIdVarName = "GITHUB_JOB"
-val isPRBuild: Boolean = if (isCI && getenv(jobIdVarName) != null) {
-    getenv(jobIdVarName) == "build_pr"
-} else {
-    false
-}
-
-val modVersion = "0.1.0-alpha+build.$buildNumber-${libs.versions.minecraft.get()}"
+val modVersion = "0.1.0-alpha+$buildInfo"
 
 group = "gay.pyrrha"
 version = modVersion
@@ -51,7 +37,7 @@ loom {
 
 // workaround for "./gradlew getChangelog --no-header --no-summary --no-empty-sections -q --console=plain --unreleased"
 // todo: keep an eye on for --no-header, --no-summary and --no-empty-sections being fixed in https://github.com/JetBrains/gradle-changelog-plugin
-tasks.create("getNextChangelog") {
+val getNextChangelog: Task by tasks.creating {
     println(changelog.renderItem(
         changelog
             .getUnreleased()
