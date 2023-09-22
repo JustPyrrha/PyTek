@@ -20,12 +20,13 @@ base.archivesName.set("DemonTech")
 
 dependencies {
     include(implementation(projects.libraries.datagen) { targetConfiguration = "namedElements" } )
+    include(implementation(projects.libraries.sync) { targetConfiguration = "namedElements" })
 
     modImplementation(libs.quilt.kotlinLibraries)
     modImplementation(libs.quilt.standardLibraries)
 
     implementation(libs.kotlinx.serializationCbor)
-    implementation(projects.libraries.sync) { targetConfiguration = "namedElements" }
+
     ksp(projects.libraries.sync) { targetConfiguration = "namedElements" }
 }
 
