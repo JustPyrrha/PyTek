@@ -36,6 +36,7 @@ class ModLintPlugin : Plugin<Project> {
                 rule(files(target.rootProject.file("codeformat/HEADER")))
                 include("**/*.kt")
                 include("**/*.java")
+                exclude("**/build/generated/ksp/main/kotlin/**/*.kt")
             }
         }
     }

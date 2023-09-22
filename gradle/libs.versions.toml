@@ -4,6 +4,7 @@ detekt = "1.23.0"
 githooks = "0.0.2"
 kotlin = "1.9.0"
 kotlinxSerializationCbor = "1.6.0"
+ksp = "1.9.0-1.0.13"
 minecraft = "1.20.1"
 minotaur = "2+"
 quiltKotlinLibraries = "2.1.2+kt.1.9.0+flk.1.10.8"
@@ -36,6 +37,7 @@ quilt-loomGradlePlugin = { group = "org.quiltmc", name = "loom", version.ref = "
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "detekt" }
 githooks = { id = "com.github.jakemarsden.git-hooks", version.ref = "githooks" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }

@@ -8,8 +8,8 @@ plugins {
     id("mod.signing")
     id("mod.publishing")
 
-//    alias(libs.plugins.githooks)
     alias(libs.plugins.kotlin.serialization)
+    alias(libs.plugins.ksp)
 }
 
 val isCI = getenv("CI") != null
@@ -39,21 +39,13 @@ dependencies {
     modImplementation(libs.quilt.standardLibraries)
 
     implementation(libs.kotlinx.serializationCbor)
-
-    testImplementation(kotlin("test"))
+    implementation(projects.libraries.sync) { targetConfiguration = "namedElements" }
+    ksp(projects.libraries.sync) { targetConfiguration = "namedElements" }
 }
 
 loom {
     runConfigs.configureEach {
         isIdeConfigGenerated = true
-    }
-}
-
-val javaVersion = 17
-
-tasks {
-    test {
-        useJUnitPlatform()
     }
 }
 

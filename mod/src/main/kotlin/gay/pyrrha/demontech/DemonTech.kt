@@ -17,6 +17,7 @@
 package gay.pyrrha.demontech
 
 import gay.pyrrha.demontech.block.ModBlocks
+import gay.pyrrha.demontech.block.entity.ModBlockEntities
 import gay.pyrrha.demontech.item.ModItems
 import net.minecraft.util.Identifier
 import org.quiltmc.loader.api.ModContainer
@@ -33,6 +34,7 @@ object DemonTech : ModInitializer {
         val startTime = System.currentTimeMillis()
 
         ModBlocks.init()
+        ModBlockEntities.init()
         ModItems.init()
 
         LOGGER.info("[DemonTech] Initialized. (Took {}ms)", System.currentTimeMillis()-startTime)

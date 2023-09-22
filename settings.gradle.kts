@@ -12,6 +12,7 @@ rootProject.name = "DemonTech"
 
 include(
     ":libraries:datagen",
+    ":libraries:sync",
     ":mod"
 )
 
