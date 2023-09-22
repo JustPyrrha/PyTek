@@ -41,7 +41,9 @@ class ModDataGenPlugin : Plugin<Project> {
             }
 
             extensions.configure<KotlinJvmProjectExtension> {
-                sourceSets.maybeCreate("main").resources.srcDirs.add(file("src/main/generated"))
+                sourceSets.getByName("main") {
+                    resources.srcDirs(file("src/main/generated/"))
+                }
             }
 
             dependencies{
