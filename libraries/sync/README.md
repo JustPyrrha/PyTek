@@ -15,7 +15,7 @@ A Kotlin Symbol Processing (KSP) plugin for generating helpers with syncing Bloc
    > so Gradle uses the variant that matches your mappings.
    ```kotlin
    dependencies {
-       implementation(projects.libraries.sync) { targetConfiguration = "namedElements" }
+       include(implementation(projects.libraries.sync) { targetConfiguration = "namedElements" })
        ksp(projects.libraries.sync) { targetConfiguration = "namedElements" }
    }
    ```
