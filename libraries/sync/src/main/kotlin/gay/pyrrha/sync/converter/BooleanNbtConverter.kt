@@ -22,10 +22,10 @@ public object BooleanNbtConverter : NbtConverter<Boolean> {
     override fun validFor(qualifiedName: String): Boolean =
         Boolean::class.qualifiedName!! == qualifiedName
 
-    override fun read(compound: NbtCompound, name: String): Boolean =
-        compound.getBoolean(name)
+    override fun read(nbt: NbtCompound, name: String): Boolean =
+        nbt.getBoolean(name)
 
-    override fun write(compound: NbtCompound, name: String, value: Boolean) {
-        compound.putBoolean(name, value)
+    override fun write(nbt: NbtCompound, name: String, value: Boolean) {
+        nbt.putBoolean(name, value)
     }
 }

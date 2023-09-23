@@ -20,6 +20,6 @@ import net.minecraft.nbt.NbtCompound
 
 public interface NbtConverter<T> {
     public fun validFor(qualifiedName: String): Boolean
-    public fun write(compound: NbtCompound, name: String, value: T)
-    public fun read(compound: NbtCompound, name: String): T
+    public fun write(nbt: NbtCompound, name: String, value: T)
+    public fun read(nbt: NbtCompound, name: String): T
 }

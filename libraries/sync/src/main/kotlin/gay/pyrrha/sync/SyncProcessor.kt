@@ -33,8 +33,17 @@ import com.google.devtools.ksp.symbol.KSType
 import com.google.devtools.ksp.symbol.KSVisitorVoid
 import com.google.devtools.ksp.validate
 import gay.pyrrha.sync.converter.BooleanNbtConverter
+import gay.pyrrha.sync.converter.ByteArrayNbtConverter
+import gay.pyrrha.sync.converter.ByteNbtConverter
+import gay.pyrrha.sync.converter.DoubleNbtConverter
+import gay.pyrrha.sync.converter.FloatNbtConverter
+import gay.pyrrha.sync.converter.IntArrayNbtConverter
 import gay.pyrrha.sync.converter.IntNbtConverter
+import gay.pyrrha.sync.converter.LongArrayNbtConverter
+import gay.pyrrha.sync.converter.LongNbtConverter
 import gay.pyrrha.sync.converter.NbtConverter
+import gay.pyrrha.sync.converter.ShortNbtConverter
+import gay.pyrrha.sync.converter.StringNbtConverter
 import java.io.OutputStream
 
 private fun OutputStream.appendText(str: String) {
@@ -43,7 +52,16 @@ private fun OutputStream.appendText(str: String) {
 
 private val nbtConverters: List<NbtConverter<*>> = listOf(
     BooleanNbtConverter,
-    IntNbtConverter
+    ByteArrayNbtConverter,
+    ByteNbtConverter,
+    DoubleNbtConverter,
+    FloatNbtConverter,
+    IntArrayNbtConverter,
+    IntNbtConverter,
+    LongArrayNbtConverter,
+    LongNbtConverter,
+    ShortNbtConverter,
+    StringNbtConverter,
 )
 
 public class SyncProcessor(
@@ -65,13 +83,9 @@ public class SyncProcessor(
         @OptIn(KspExperimental::class)
         @Suppress("LongMethod")
         override fun visitClassDeclaration(classDeclaration: KSClassDeclaration, data: Unit) {
+            logger.info("Visiting ${classDeclaration.qualifiedName!!.asString()}")
             val packageName = classDeclaration.containingFile!!.packageName.asString()
             val className = "${classDeclaration.simpleName.asString()}Sync"
-            val file = codeGenerator.createNewFile(
-                Dependencies(false, classDeclaration.containingFile!!),
-                packageName,
-                className
-            )
             val syncFields: MutableMap<KSPropertyDeclaration, NbtConverter<*>> = mutableMapOf()
             classDeclaration.getAllProperties()
                 .filter { it.hasBackingField && it.isAnnotationPresent(Sync::class) }
@@ -79,6 +93,13 @@ public class SyncProcessor(
                     val converter = findTypeConverter(it.type.resolve())
                     syncFields[it] = converter
                 }
+            if (syncFields.isEmpty()) {
+                logger.error(
+                    "${classDeclaration.qualifiedName!!.asString()} is marked with @Sync but has no @Sync fields.",
+                    classDeclaration
+                )
+                return
+            }
 
             val imports = mutableListOf(
                 "gay.pyrrha.sync.SyncData",
@@ -94,6 +115,11 @@ public class SyncProcessor(
                     .distinct()
             )
 
+            val file = codeGenerator.createNewFile(
+                Dependencies(false, classDeclaration.containingFile!!),
+                packageName,
+                className
+            )
             file.appendText(
                 """
                 /*

@@ -1,10 +1,13 @@
 plugins {
     id("mod.quilt.library")
     id("mod.lint")
+    id("mod.testing")
 }
 
 group = "gay.pyrrha"
 
 dependencies {
-    implementation("com.google.devtools.ksp:symbol-processing-api:1.9.0-1.0.13")
+    implementation(libs.ksp.symbolProcessingApi)
+
+    testImplementation(libs.kotlin.compileTestingKsp)
 }

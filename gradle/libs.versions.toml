@@ -1,8 +1,11 @@
 [versions]
+assertk = "0.27.0"
 changelog = "2.2.0"
 detekt = "1.23.0"
 githooks = "0.0.2"
+junitParams = "5.10.0"
 kotlin = "1.9.0"
+kotlinCompileTesting = "1.5.0"
 kotlinxSerializationCbor = "1.6.0"
 ksp = "1.9.0-1.0.13"
 minecraft = "1.20.1"
@@ -17,7 +20,11 @@ quiltStandardLibraries = "6.1.2+1.20.1"
 quiltedFabricApi = "7.2.2+0.88.1-1.20.1"
 
 [libraries]
+assertk = { group = "com.willowtreeapps.assertk", name = "assertk", version.ref = "assertk" }
+junit-params = { group = "org.junit.jupiter", name = "junit-jupiter-params", version.ref = "junitParams" }
+kotlin-compileTestingKsp = { group = "com.github.tschuchortdev", name = "kotlin-compile-testing-ksp", version.ref = "kotlinCompileTesting" }
 kotlinx-serializationCbor = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-cbor", version.ref = "kotlinxSerializationCbor" }
+ksp-symbolProcessingApi = { group = "com.google.devtools.ksp", name = "symbol-processing-api", version.ref = "ksp" }
 minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
 quilt-kotlinLibraries = { group = "org.quiltmc.quilt-kotlin-libraries", name = "quilt-kotlin-libraries", version.ref = "quiltKotlinLibraries" }
 quilt-loader = { group = "org.quiltmc", name = "quilt-loader", version.ref = "quiltLoader" }

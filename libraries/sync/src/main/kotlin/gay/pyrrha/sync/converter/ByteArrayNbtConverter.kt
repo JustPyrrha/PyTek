@@ -18,14 +18,14 @@ package gay.pyrrha.sync.converter
 
 import net.minecraft.nbt.NbtCompound
 
-public object IntNbtConverter: NbtConverter<Int> {
+public object ByteArrayNbtConverter : NbtConverter<ByteArray> {
     override fun validFor(qualifiedName: String): Boolean =
-        Int::class.qualifiedName!!.toString() == qualifiedName
+        ByteArray::class.qualifiedName!! == qualifiedName
 
-    override fun read(nbt: NbtCompound, name: String): Int =
-        nbt.getInt(name)
+    override fun read(nbt: NbtCompound, name: String): ByteArray =
+        nbt.getByteArray(name)
 
-    override fun write(nbt: NbtCompound, name: String, value: Int) {
-        nbt.putInt(name, value)
+    override fun write(nbt: NbtCompound, name: String, value: ByteArray) {
+       nbt.putByteArray(name, value)
     }
 }

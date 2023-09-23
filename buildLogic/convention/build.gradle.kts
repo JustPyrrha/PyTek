@@ -49,29 +49,33 @@ license {
 
 gradlePlugin {
     plugins {
-        register("quiltMod") {
-            id = "mod.quilt"
-            implementationClass = "ModQuiltModPlugin"
-        }
-        register("quiltLibrary") {
-            id = "mod.quilt.library"
-            implementationClass = "ModQuiltLibraryPlugin"
+        register("datagen") {
+            id = "mod.datagen"
+            implementationClass = "ModDataGenPlugin"
         }
         register("lint") {
             id = "mod.lint"
             implementationClass = "ModLintPlugin"
         }
-        register("signing") {
-            id = "mod.signing"
-            implementationClass = "ModSigningPlugin"
-        }
         register("publishing") {
             id = "mod.publishing"
             implementationClass = "ModPublishingPlugin"
         }
-        register("datagen") {
-            id = "mod.datagen"
-            implementationClass = "ModDataGenPlugin"
+        register("quiltLibrary") {
+            id = "mod.quilt.library"
+            implementationClass = "ModQuiltLibraryPlugin"
+        }
+        register("quiltMod") {
+            id = "mod.quilt"
+            implementationClass = "ModQuiltModPlugin"
+        }
+        register("signing") {
+            id = "mod.signing"
+            implementationClass = "ModSigningPlugin"
+        }
+        register("testing") {
+            id = "mod.testing"
+            implementationClass = "ModTestingPlugin"
         }
     }
 }
