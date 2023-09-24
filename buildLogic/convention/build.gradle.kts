@@ -61,6 +61,10 @@ gradlePlugin {
             id = "mod.publishing"
             implementationClass = "ModPublishingPlugin"
         }
+        register("quiltGameTest") {
+            id = "mod.quilt.gametest"
+            implementationClass = "ModQuiltGameTestPlugin"
+        }
         register("quiltLibrary") {
             id = "mod.quilt.library"
             implementationClass = "ModQuiltLibraryPlugin"

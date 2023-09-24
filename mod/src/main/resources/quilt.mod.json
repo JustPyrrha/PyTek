@@ -33,6 +33,10 @@
       "fabric-datagen": {
         "adapter": "kotlin",
         "value": "gay.pyrrha.demontech.datagen.DemonTechDataGen"
+      },
+      "quilt:game_test": {
+        "adapter": "kotlin",
+        "value": "gay.pyrrha.demontech.gametest.DemonTechGameTestSuite"
       }
     }
   },

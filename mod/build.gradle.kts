@@ -3,6 +3,7 @@ import org.jetbrains.changelog.Changelog
 
 plugins {
     id("mod.quilt")
+    id("mod.quilt.gametest")
     id("mod.lint")
     id("mod.datagen")
     id("mod.signing")

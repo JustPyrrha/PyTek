@@ -33,7 +33,8 @@ class ThermalGeneratorBlockEntity(
 ) : BlockEntity(ModBlockEntities.THERMAL_GENERATOR, pos, state) {
 
     @Sync
-    internal var active: Boolean = false
+    var active: Boolean = false
+        internal set
 
     @Sync
     private var energyBuffer: Int = 0

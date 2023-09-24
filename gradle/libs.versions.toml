@@ -30,6 +30,7 @@ quilt-kotlinLibraries = { group = "org.quiltmc.quilt-kotlin-libraries", name = "
 quilt-loader = { group = "org.quiltmc", name = "quilt-loader", version.ref = "quiltLoader" }
 quilt-mappings = { group = "org.quiltmc", name = "quilt-mappings", version.ref = "quiltMappings" }
 quilt-standardLibraries = { group = "org.quiltmc", name = "qsl", version.ref = "quiltStandardLibraries" }
+quilt-qslCoreTesting = { group = "org.quiltmc.qsl.core", name = "testing", version.ref = "quiltStandardLibraries" }
 quilted-fabricDataGenerationApiV1 = { group = "org.quiltmc.quilted-fabric-api", name = "fabric-data-generation-api-v1", version.ref = "quiltedFabricApi" }
 
 # for buildLogic
