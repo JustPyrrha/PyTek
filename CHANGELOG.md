@@ -12,6 +12,9 @@ DemonTech - Technology and a lick of flame.
  - Thermal Pad
  - Adaptive Thermal Pad
 
+#### Tests
+ - Added GameTest configuration with convention plugin. ([DT-1](https://github.com/JustPyrrha/DemonTech/issues/1))
+
 ### Changed
 
 ### Deprecated
