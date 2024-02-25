@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="PyTek" src="artSrc/logo-wordmark.png" />
+    <img alt="PyTek" src="https://raw.githubusercontent.com/JustPyrrha/PyTek/main/artSrc/logo-wordmark.png" />
     <br>
     <img alt="GitHub Actions Workflow Status" src="https://img.shields.io/github/actions/workflow/status/JustPyrrha/PyTek/ci_push.yml?style=flat-square"/>
     <a target="_blank" href="https://discord.gg/2863GKB8ZF"><img alt="Discord" src="https://img.shields.io/discord/1104618729989480519?style=flat-square"/></a> <!-- modrinth_exclude.start -->
