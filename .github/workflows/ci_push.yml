@@ -21,12 +21,12 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
+        with:
+          dependency-graph: generate-and-submit
+          artifact-retention-days: 1
 
       - name: Set Gradle Wrapper Executable
         run: chmod +x gradlew
-
-      - name: Generate and Submit Gradle Dependency Graph
-        uses: gradle/actions/dependency-submission@v3
 
       - name: Build and Test
         run: ./gradlew build test
