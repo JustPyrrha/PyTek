@@ -1,0 +1,6 @@
+{
+    "pack": {
+        "description": "PyTek - v{{ version }}",
+        "pack_format": 18
+    }
+}

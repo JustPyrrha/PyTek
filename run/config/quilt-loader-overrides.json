@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "overrides": [
+    {
+      "pattern": ".*",
+      "depends": [{"remove": { "id": "minecraft", "versions": "=1.20.2" }}]
+    }
+  ]
+}

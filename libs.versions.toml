@@ -1,0 +1,40 @@
+[versions]
+blossom = "2.1.0"
+changelog = "2.2.0"
+dokka = "1.9.10"
+githooks = "0.0.2"
+grgit = "5.2.2"
+ideaExt = "1.1.7"
+kotlin = "1.9.22"
+licenser = "1.1.1"
+logging = "5.1.0"
+minecraft = "1.20.4"
+minotaur = "2.8.7"
+quiltKotlin = "3.0.0+kt.1.9.22+flk.1.10.17"
+quiltLoader = "0.24.0-beta.8"
+quiltLoom = "1.+" # todo: pin version
+quiltMappings = "1.20.4+build.3"
+quiltStdLib = "7.0.0-alpha.11+1.20.2"
+
+[libraries]
+dokka-pluginBase = { group = "org.jetbrains.dokka", name = "dokka-base", version.ref = "dokka" }
+dokka-pluginVersioning = { group = "org.jetbrains.dokka", name = "versioning-plugin", version.ref = "dokka" }
+logging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version.ref = "logging" }
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test" }
+minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
+quilt-kotlin = { group = "org.quiltmc.quilt-kotlin-libraries", name = "core", version.ref = "quiltKotlin" } # switch name back to `quilt-kotlin-libraries` once 1.20.4 is supported
+quilt-loader = { group = "org.quiltmc", name = "quilt-loader", version.ref = "quiltLoader" }
+quilt-mappings = { group = "org.quiltmc", name = "quilt-mappings", version.ref = "quiltMappings" }
+quilt-stdLib-base = { group = "org.quiltmc.qsl.core", name = "qsl_base", version.ref = "quiltStdLib" }
+
+[plugins]
+blossom = { id = "net.kyori.blossom", version.ref = "blossom" }
+changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+githooks = { id = "com.github.jakemarsden.git-hooks", version.ref = "githooks" }
+grgit = { id = "org.ajoberstar.grgit", version.ref = "grgit" }
+ideaExt = { id = "org.jetbrains.gradle.plugin.idea-ext", version.ref = "ideaExt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+licenser = { id = "dev.yumi.gradle.licenser", version.ref = "licenser" }
+loom = { id = "org.quiltmc.loom", version.ref = "quiltLoom" }
+minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }

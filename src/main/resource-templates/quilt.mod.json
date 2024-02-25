@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "quilt_loader": {
+    "group": "gay.pyrrha",
+    "id": "pytek",
+    "version": "{{ version }}",
+    "metadata": {
+      "name": "PyTek",
+      "license": {
+        "name": "Mozilla Public License v2",
+        "id": "MPL-2.0",
+        "url": ""
+      }
+    },
+    "intermediate_mappings": "net.fabricmc:intermediary",
+    "entrypoints": {
+      "init": {
+        "value": "gay.pyrrha.pytek.PyTek::onInitialize",
+        "adapter": "kotlin"
+      },
+      "server_init": {
+        "value": "gay.pyrrha.pytek.server.PyTekServer::onInitializeServer",
+        "adapter": "kotlin"
+      },
+      "client_init": {
+        "value": "gay.pyrrha.pytek.client.PyTekClient::onInitializeClient",
+        "adapter": "kotlin"
+      }
+    },
+    "depends": [
+      {
+        "id": "minecraft",
+        "versions": "~{{ mcVersion }}",
+        "environment": "*"
+      }
+    ]
+  },
+  "minecraft": {
+    "environment": "*"
+  }
+}
