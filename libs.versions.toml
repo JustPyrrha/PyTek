@@ -1,0 +1,43 @@
+[versions]
+changelog = "2.2.0" # https://github.com/JetBrains/gradle-changelog-plugin/releases
+dokka = "1.9.20" # https://github.com/Kotlin/dokka/releases
+ideaExt = "1.1.8" # https://plugins.gradle.org/plugin/org.jetbrains.gradle.plugin.idea-ext
+kotlin = "1.9.23"
+licenser = "1.1.2" # https://github.com/YumiProject/yumi-gradle-licenser/tags
+logging = "6.0.9" # https://github.com/oshai/kotlin-logging/releases
+minecraft = "1.20.6"
+minotaur = "2.8.7" # https://github.com/modrinth/minotaur/releases
+neoforge = "20.6.70-beta" # https://maven.neoforged.net/#/releases/net/neoforged/neoforge
+neoforgeKotlin = "5.1.0" # https://github.com/thedarkcolour/KotlinForForge/tree/site/thedarkcolour/kotlinforforge-neoforge
+neoforgeUserDev = "7.0.129" # https://maven.neoforged.net/#/releases/net/neoforged/gradle/userdev
+quiltLoom = "1.6.7" # https://maven.quiltmc.org/repository/release/org/quiltmc/loom/
+
+[libraries]
+dokka-pluginBase = { group = "org.jetbrains.dokka", name = "dokka-base", version.ref = "dokka" }
+dokka-pluginVersioning = { group = "org.jetbrains.dokka", name = "versioning-plugin", version.ref = "dokka" }
+logging = { group = "io.github.oshai", name = "kotlin-logging-jvm", version.ref = "logging" }
+minecraft = { group = "com.mojang", name = "minecraft", version.ref = "minecraft" }
+neoforge = { group = "net.neoforged", name = "neoforge", version.ref = "neoforge" }
+neoforge-kotlin = { group = "thedarkcolour", name = "kotlinforforge-neoforge", version.ref = "neoforgeKotlin" }
+
+# for buildLogic
+kotlin-gradlePlugin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+quilt-loom-gradlePlugin = { group = "org.quiltmc", name = "loom", version.ref = "quiltLoom" }
+
+[plugins]
+changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
+dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version.ref = "ideaExt" }
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+licenser = { id = "dev.yumi.gradle.licenser", version.ref = "licenser" }
+minotaur = { id = "com.modrinth.minotaur", version.ref = "minotaur" }
+neoforge-userdev = { id = "net.neoforged.gradle.userdev", version.ref = "neoforgeUserDev" }
+quilt-loom = { id = "org.quiltmc.loom", version.ref = "quiltLoom" }
+
+# custom plugins from buildLogic
+ml-internal-jvm = { id = "ml.internal.jvm", version = "unspecified" }
+ml-internal-loom = { id = "ml.internal.loom", version = "unspecified" }
+ml-internal-mod = { id = "ml.internal.mod", version = "unspecified" }
+ml-common = { id = "ml.common", version = "unspecified" }
+ml-runtime = { id = "ml.runtime", version = "unspecified" }
