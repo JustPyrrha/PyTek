@@ -9,6 +9,7 @@ import org.jetbrains.dokka.versioning.VersioningPlugin
 plugins {
     alias(libs.plugins.changelog)
     alias(libs.plugins.dokka)
+    alias(libs.plugins.githooks)
 
     alias(libs.plugins.idea.ext) apply false
     alias(libs.plugins.kotlin.jvm) apply false
@@ -62,6 +63,10 @@ changelog {
     groups = listOf("Added", "Changed", "Deprecated", "Removed", "Fixed", "Security")
     lineSeparator = "\n"
     combinePreReleases = true
+}
+
+gitHooks {
+    setHooks(mapOf("pre-commit" to "build test checkLicenses"))
 }
 
 tasks {

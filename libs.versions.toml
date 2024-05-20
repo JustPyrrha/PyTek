@@ -1,6 +1,7 @@
 [versions]
 changelog = "2.2.0" # https://github.com/JetBrains/gradle-changelog-plugin/releases
 dokka = "1.9.20" # https://github.com/Kotlin/dokka/releases
+githooks = "0.0.2" # https://github.com/jakemarsden/git-hooks-gradle-plugin/releases
 ideaExt = "1.1.8" # https://plugins.gradle.org/plugin/org.jetbrains.gradle.plugin.idea-ext
 kotlin = "1.9.23"
 licenser = "1.1.2" # https://github.com/YumiProject/yumi-gradle-licenser/tags
@@ -27,6 +28,7 @@ quilt-loom-gradlePlugin = { group = "org.quiltmc", name = "loom", version.ref = 
 [plugins]
 changelog = { id = "org.jetbrains.changelog", version.ref = "changelog" }
 dokka = { id = "org.jetbrains.dokka", version.ref = "dokka" }
+githooks = { id = "com.github.jakemarsden.git-hooks", version.ref = "githooks" }
 idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version.ref = "ideaExt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
