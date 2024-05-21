@@ -1,6 +1,5 @@
 import gay.pyrrha.build.*
 import org.jetbrains.changelog.Changelog
-import org.jetbrains.changelog.ChangelogPluginExtension
 
 plugins {
     alias(libs.plugins.changelog)
@@ -14,10 +13,6 @@ plugins {
 
 base.archivesName.set("PyTek-NeoForge")
 
-val includeLibrary: Configuration by configurations.creating {
-    exclude(group = "org.jetbrains", module = "annotations")
-}
-
 runs {
     configureEach {
         // SCAN, REGISTRIES, REGISTRYDUMP
@@ -25,10 +20,6 @@ runs {
         systemProperties("forge.logging.console.level", "debug")
 
         modSource(sourceSets.main.get())
-
-        dependencies {
-            runtime(includeLibrary)
-        }
     }
 }
 
@@ -42,12 +33,15 @@ repositories {
 jarJar.enable()
 dependencies {
     implementation(libs.neoforge)
-
     implementation(libs.neoforge.kotlin)
 
-    implementation(libs.logging)
-    includeLibrary(libs.logging)
-    kotlinForgeRuntimeLibrary(libs.logging)
+    includeApi(libs.logging)
+}
+
+fun DependencyHandlerScope.includeApi(dependency: Provider<*>) {
+    api(dependency)
+    jarJar(dependency) { isTransitive = false }
+    kotlinForgeRuntimeLibrary(dependency)
 }
 
 kotlin {
@@ -57,14 +51,6 @@ kotlin {
 tasks {
     jarJar.configure {
         archiveClassifier = ""
-
-        from(provider { includeLibrary.map(::zipTree).toTypedArray() })
-        manifest {
-            attributes(
-                "Automatic-Module-Name" to "gay.pyrrha.pytek",
-                "FMLModType" to "LIBRARY"
-            )
-        }
     }
 
     jar {
