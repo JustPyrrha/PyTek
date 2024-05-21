@@ -87,5 +87,5 @@ modrinth {
             .withHeader(false),
         Changelog.OutputType.MARKDOWN
     )
-    syncBodyFrom = rootProject.file("README.md").absolutePath
+    syncBodyFrom = rootProject.file("README.md").readText()
 }
