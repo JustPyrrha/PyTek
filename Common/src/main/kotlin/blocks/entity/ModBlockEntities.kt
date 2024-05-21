@@ -20,31 +20,22 @@ import net.minecraft.world.level.block.entity.BlockEntityType
 import net.minecraft.world.level.block.state.BlockState
 
 public object ModBlockEntities {
-    private val ALL = hashMapOf<ResourceLocation, BlockEntityType<*>>()
-
     public val REACTOR_CONTROLLER: BlockEntityType<ReactorControllerBlockEntity> by lazy {
-        create(
-            "reactor_controller",
-            ModBlocks.REACTOR_CONTROLLER,
-            factory = ::ReactorControllerBlockEntity
-        )
+        create(ModBlocks.REACTOR_CONTROLLER, factory = ::ReactorControllerBlockEntity)
+    }
+
+    public val CABLE: BlockEntityType<CableBlockEntity> by lazy {
+        create(ModBlocks.CABLE, factory = ::CableBlockEntity)
     }
 
     private fun <T : BlockEntity> create(
-        path: String,
         vararg blocks: Block,
         dfuType: DFUType<*>? = null,
         factory: (BlockPos, BlockState) -> T
-    ): BlockEntityType<T> {
-        val type = ModRuntime.instance.createBlockEntityType(*blocks, dfuType = dfuType, factory = factory)
-        val existing = ALL.put(rl(path), type)
-        if (existing != null) {
-            throw IllegalArgumentException("Duplicate id ${rl(path)}")
-        }
-        return type
-    }
+    ): BlockEntityType<T> = ModRuntime.instance.createBlockEntityType(*blocks, dfuType = dfuType, factory = factory)
 
     public fun init(register: (ResourceLocation, BlockEntityType<*>) -> Unit) {
-        ALL.forEach { (rl, t) -> register(rl, t) }
+        register(rl("reactor_controller"), REACTOR_CONTROLLER)
+        register(rl("cable"), CABLE)
     }
 }

@@ -13,13 +13,47 @@ plugins {
 
 base.archivesName.set("PyTek-NeoForge")
 
+val modId = "pytek"
+val generatedResourcesDir = "src/generated/resources"
+
 runs {
+
     configureEach {
         // SCAN, REGISTRIES, REGISTRYDUMP
         systemProperty("forge.logging.markers", "SCAN")
         systemProperties("forge.logging.console.level", "debug")
 
         modSource(sourceSets.main.get())
+    }
+
+    val client by creating {
+        systemProperty("forge.enabledGameTestNamespaces", modId)
+    }
+
+    val server by creating {
+        systemProperty("forge.enabledGameTestNamespaces", modId)
+        programArguments("--nogui")
+    }
+
+    val gameTestServer by creating {
+        systemProperty("forge.enabledGameTestNamespaces", modId)
+    }
+
+    val data by creating {
+        programArguments(
+            "--mod", modId,
+            "--all",
+            "--output", file(generatedResourcesDir).absolutePath,
+            "--existing", file(generatedResourcesDir).absolutePath
+        )
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDir(generatedResourcesDir)
+        }
     }
 }
 

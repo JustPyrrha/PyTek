@@ -12,14 +12,20 @@ import gay.pyrrha.pytek.MOD_ID
 import gay.pyrrha.pytek.PyTekCore
 import gay.pyrrha.pytek.blocks.ModBlocks
 import gay.pyrrha.pytek.blocks.entity.ModBlockEntities
+import gay.pyrrha.pytek.neoforge.datagen.BlockStateProvider
+import gay.pyrrha.pytek.neoforge.datagen.EnUsLanguageProvider
 import net.minecraft.core.Registry
 import net.minecraft.core.registries.Registries
+import net.minecraft.data.DataGenerator
+import net.minecraft.data.DataProvider
+import net.minecraft.data.PackOutput
 import net.minecraft.resources.ResourceKey
 import net.minecraft.resources.ResourceLocation
 import net.neoforged.bus.api.IEventBus
 import net.neoforged.fml.ModContainer
 import net.neoforged.fml.common.Mod
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent
+import net.neoforged.neoforge.data.event.GatherDataEvent
 import net.neoforged.neoforge.registries.RegisterEvent
 
 @Mod(MOD_ID)
@@ -40,7 +46,10 @@ public class PyTekNeoForge(private val modEventBus: IEventBus, modContainer: Mod
 
     private fun registryInit() {
         bindRegistry(Registries.BLOCK, ModBlocks::init)
-        bindRegistry(Registries.ITEM, ModBlocks::initBlockItems) // todo(py, 20/05/2024): Add BlockItems to a creative tab.
+        bindRegistry(
+            Registries.ITEM,
+            ModBlocks::initBlockItems
+        ) // todo(py, 20/05/2024): Add BlockItems to a creative tab.
         bindRegistry(Registries.BLOCK_ENTITY_TYPE, ModBlockEntities::init)
     }
 

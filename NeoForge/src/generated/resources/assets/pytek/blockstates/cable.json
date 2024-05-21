@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "pytek:block/cable"
+    }
+  }
+}
