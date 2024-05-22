@@ -22,7 +22,7 @@ public object NeoForgeDataGenerator {
         val output = generator.packOutput
         val disabledExistingFileHelper = ExistingFileHelper(emptyList(), emptySet(), false, null, null)
 
-        generator.addProvider(event.includeServer(), EnUsLanguageProvider(output))
-        generator.addProvider(event.includeServer(), BlockStateProvider(output, disabledExistingFileHelper))
+        generator.addProvider(event.includeServer(), NeoUSEnglishLanguageDataProvider(output))
+        generator.addProvider(event.includeServer(), NeoBlockStateDataProvider(output, disabledExistingFileHelper))
     }
 }

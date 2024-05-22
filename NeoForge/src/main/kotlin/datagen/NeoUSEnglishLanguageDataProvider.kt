@@ -13,7 +13,7 @@ import gay.pyrrha.pytek.datagen.lang.EnUsLanguageProvider
 import net.minecraft.data.PackOutput
 import net.neoforged.neoforge.common.data.LanguageProvider
 
-public class EnUsLanguageProvider(output: PackOutput) : LanguageProvider(output, MOD_ID, "en_us") {
+public class NeoUSEnglishLanguageDataProvider(output: PackOutput) : LanguageProvider(output, MOD_ID, "en_us") {
     override fun addTranslations() {
         EnUsLanguageProvider.provide(::add, ::add, ::add, ::add, ::add, ::add, ::add, ::add)
     }

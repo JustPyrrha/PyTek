@@ -16,7 +16,7 @@ import net.neoforged.neoforge.client.model.generators.BlockStateProvider
 import net.neoforged.neoforge.common.data.ExistingFileHelper
 
 // todo(py, 21/05/2024): make this platform non-specific
-public class BlockStateProvider(
+public class NeoBlockStateDataProvider(
     output: PackOutput,
     exFileHelper: ExistingFileHelper
 ) : BlockStateProvider(output, MOD_ID, exFileHelper) {
