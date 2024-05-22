@@ -21,6 +21,8 @@ dependencyResolutionManagement {
 }
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+//todo(py, 22/05/2024): Replace multiple projects with multiplatform targets, requires KT-28194
 include(
     "Common",
     "NeoForge"
