@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "pytek:block/reactor_controller_front",
-    "side": "pytek:block/reactor_controller_side",
-    "top": "pytek:block/reactor_controller_top"
-  }
-}

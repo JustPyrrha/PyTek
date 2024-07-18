@@ -1,6 +1,6 @@
 <center>
     <h3 align="center">
-        <img alt="PyTek" width="100" style="border-radius: 50%; border: none;" src="https://raw.githubusercontent.com/JustPyrrha/PyTek/main/artSrc/logo-icon.svg" /><br/>
+        <img alt="PyTek" width="100" src="https://raw.githubusercontent.com/JustPyrrha/PyTek/main/artSrc/logo-icon.svg" /><br/>
         <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
         PyTek
         <img src="https://raw.githubusercontent.com/catppuccin/catppuccin/main/assets/misc/transparent.png" height="30" width="0px"/>
@@ -18,3 +18,4 @@
 </center>
 
 ---
+

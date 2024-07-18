@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "pytek",
+  "version": "$version",
+  "name": "PyTek",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      {
+        "adapter": "kotlin",
+        "value": "gay.pyrrha.pytek.PyTek"
+      }
+    ],
+    "client": [
+      {
+        "adapter": "kotlin",
+        "value": "gay.pyrrha.pytek.client.PyTekClient"
+      }
+    ]
+  }
+}
